@@ -1,0 +1,63 @@
+﻿{% extends 'businesscalculator/base.html' %}
+
+{% block content %}
+    <br>
+    <ul class="list-articles">
+    <h1>Проведнные анализы форм отчётности</h1>
+    </ul>
+    <br>
+    {% for i in balance_reports %}
+        <div class="container text-left">
+          <div class="row">
+            <div class="col-9">
+                {% if i.year < isit %}
+                    <span class="badge rounded-pill text-bg-primary">Баланс</span>
+                    <span class="badge text-bg-danger">Нельзя комментировать</span>
+                {% else %}
+                    <span class="badge rounded-pill text-bg-primary">Баланс</span>
+                {% endif %}
+                <p class="h3">Отчёт, составленный на основе данных за {{ i.year }}, которые были предоставлены {{ i.date }}</p>
+            </div>
+            <div class='col-1'>
+            </div>
+            <div class="row">
+                <div class="col-9">
+                    <p class="h5">Компания: {{ i.company.name }}</p>
+                </div>
+                <div class="col-3">
+                  <p><a class="btn btn-primary" href="/history/balance_report/{{ i.company.id }}/{{ i.year }}/"
+                        role="button">Перейти к обсуждению</a></p>
+                    <br>
+                </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    {% for i in statement_reports %}
+        <div class="container text-left">
+          <div class="row">
+            <div class="col-9">
+              {% if i.year < isit %}
+                <span class="badge rounded-pill text-bg-success">Отчёт о ФР</span>
+                <span class="badge text-bg-danger">Нельзя комментировать</span>
+              {% else %}
+                <span class="badge rounded-pill text-bg-success">Отчёт о ФР</span>
+              {% endif %}
+                <p class="h3">Отчёт, составленный на основе данных за {{ i.year }}, которые были предоставлены {{ i.date }}</p>
+            </div>
+            <div class='col-1'>
+            </div>
+            <div class="row">
+                <div class="col-9">
+                    <p class="h5">Компания: {{ i.company.name }}</p>
+                </div>
+                <div class="col-3">
+                  <p><a class="btn btn-success" href="/history/statement_report/{{ i.company.id }}/{{ i.year }}/"
+                        role="button">Перейти к обсуждению</a></p>
+                    <br>
+                </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+{% endblock %}

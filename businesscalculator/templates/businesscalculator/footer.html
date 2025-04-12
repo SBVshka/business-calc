@@ -1,0 +1,79 @@
+<footer class="navbar-fixed-bottom bg-primary text-white text-center text-lg-start">
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Бизнес-калькулятор</h5>
+
+        <p>
+          Это уникальное веб-приложение для анализа основных форм отчётности
+            компаний малого и среднего базнеса, ключевым резльтатом которого
+            является расчёт показателей успеха хозяйственной деятельности предприятия и
+            формирование рекомендаций для принятия управленческих решений
+            от ведущих экспертов
+        </p>
+      </div>
+        {% if user.is_authenticated %}
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Сайт</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="/" class="text-white">Главная</a>
+          </li>
+          <li>
+            <a href="/lk/" class="text-white">Личный кабинет</a>
+          </li>
+          <li>
+            <a href="/history/" class="text-white">История отчётов</a>
+          </li>
+          <li>
+            <a href="/history/" class="text-white">Галерея экспертов</a>
+          </li>
+        </ul>
+      </div>
+        {% else %}
+              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Сайт</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="/" class="text-white">Главная</a>
+          </li>
+          <li>
+            <a href="#" class="text-white">Личный кабинет</a>
+          </li>
+          <li>
+            <a href="#" class="text-white">История отчётов</a>
+          </li>
+          <li>
+            <a href="#" class="text-white">Галерея экспертов</a>
+          </li>
+        </ul>
+      </div>
+        {% endif %}
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Полезно изучить</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="https://urait.ru/book/finansovyy-menedzhment-530723" class="text-white">Финансовый менеджмент</a>
+          </li>
+          <li>
+            <a href="https://bmstu.press/catalog/item/5039/" class="text-white">Анализ ФО предприятия</a>
+          </li>
+          <li>
+            <a href="https://orlovs.pp.ru" class="text-white">Высокие статистические технологии</a>
+          </li>
+          <li>
+            <a href="https://bmstu.online/courses/01-web/" class="text-white">Курс по web-разработке</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-white" href="/">BusinessCalculator.com</a>
+  </div>
+</footer>

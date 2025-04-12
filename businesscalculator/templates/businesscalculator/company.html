@@ -1,0 +1,76 @@
+{% extends 'businesscalculator/base.html' %}
+
+{% block content %}
+
+{% for i in companies %}
+    <br>
+    <ul class="list-articles">
+    <h1 >Краткая информация о компании</h1>
+    </ul>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-1">
+
+    </div>
+    <div class="col-10">
+              <br>
+            <table class="table table-bordered border-primary">
+          <thead>
+            <tr>
+              <th scope="col">Характеристика</th>
+              <th scope="col">Значение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">Наименование компании</td>
+              <td>{{ i.name }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Год основания</td>
+              <td>{{ i.year }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Основатель компании</td>
+              <td>{{ i.founder }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Дата регистрации на сайте</td>
+              <td>{{ i.registration_date }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Организационно-правовая форма</td>
+              <td>{{ i.form }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Отрасль</td>
+              <td>{{ i.industry }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Основной вид деятельности</td>
+              <td>{{ i.activity }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Адрес электронной почты</td>
+              <td>{{ i.email }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Телефон</td>
+              <td>{{ i.tel }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        {% if request.user == i.user %}
+        <p><a class="btn btn-primary" href="/company_data/{{ i.pk }}/" role="button">Внести изменения</a>
+        <a class="btn btn-danger" href="/company_delete/{{ i.pk }}/" role="button">Удалить</a></p>
+        {% else %}
+        {% endif %}
+    </div>
+    <div class="col-1">
+
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

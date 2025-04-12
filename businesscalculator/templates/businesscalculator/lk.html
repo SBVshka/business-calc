@@ -1,0 +1,31 @@
+{% extends 'businesscalculator/base.html' %}
+
+{% block content %}
+    <br>
+    <ul class="list-articles">
+    <h1>Мои компании</h1>
+    </ul>
+    <br>
+    {% for i in companies %}
+        <div class="container text-left">
+          <div class="row">
+            <div class="col-9">
+              <span class="badge rounded-pill text-bg-primary">Компания №{{ i.pk }}</span>
+                <p class="h3">Название компании: {{ i.name }}</p>
+            </div>
+            <div class='col-1'>
+            </div>
+            <div class="row">
+                <div class="col-9">
+                    <p class="h5">Год основания: {{ i.year }}</p>
+                    <p class="h5">Основатель: {{ i.founder }}</p>
+                </div>
+                <div class="col-3">
+                  <p><a class="btn btn-success" href="/company/{{ i.pk }}/" role="button">Посмотреть информацию</a></p>
+                    <br>
+                </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+{% endblock %}

@@ -1,0 +1,220 @@
+{% extends 'businesscalculator/base.html' %}
+
+
+{% block content %}
+{% for i in balance_report_object %}
+    <br>
+    <ul class="list-articles">
+    <h1 >Отчёт за {{ i.year }}-й год, данные для которого были добавлены {{ i.date }}</h1>
+    </ul>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-1">
+
+    </div>
+    <div class="col-10">
+              <br>
+            <p class="h3">Краткая информация о компании</p>
+            <table class="table table-bordered border-primary">
+          <thead>
+            <tr>
+              <th scope="col">Характеристика</th>
+              <th scope="col">Значение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">Наименование компании</td>
+              <td>{{ i.company.name }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Год основания</td>
+              <td>{{ i.company.year }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Основатель компании</td>
+              <td>{{ i.company.founder }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Дата регистрации на сайте</td>
+              <td>{{ i.company.registration_date }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Организационно-правовая форма</td>
+              <td>{{ i.company.form }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Отрасль</td>
+              <td>{{ i.company.industry }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Основной вид деятельности</td>
+              <td>{{ i.company.activity }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Адрес электронной почты</td>
+              <td>{{ i.company.email }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Телефон</td>
+              <td>{{ i.company.tel }}</td>
+            </tr>
+          </tbody>
+        </table>
+              <br>
+              <p class="h3">Данные бухгалтерского баланса</p>
+        <table class="table table-bordered border-primary">
+          <thead>
+            <tr>
+              <th scope="col">Наименование показателя</th>
+              <th scope="col">Описание</th>
+              <th scope="col">Значение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">Отчётный период</td>
+              <td>Отчетным периодом для годовой бухгалтерской (финансовой) отчетности (отчетным годом) является
+                  календарный год - с 1 января по 31 декабря включительно, за исключением случаев создания,
+                  реорганизации и ликвидации юридического лица.</td>
+              <td>{{ i.year }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Величина внеоборотных активов</td>
+              <td>Внеоборотные активы (ВА) – это имущество, которое используется в хозяйственной деятельности
+                  предприятия сроком более одного года. Его стоимость переносится на стоимость готовой продукции
+                  по частям.</td>
+              <td>{{ i.fixed_assets }}</td>
+            </tr>
+            <tr>
+              <td scope="row">Величинв оборотных активов</td>
+              <td>Оборотные активы – это активы, которые служат или погашаются в течение 12 месяцев, либо в течение
+                  нормального операционного цикла организации (если он превышает 1 год). Многие оборотные активы
+                  используются одномоментно при отпуске их в производство (например, сырье и материалы).</td>
+                <td>{{ i.current_assets }}</td>
+            </tr>
+          <tr>
+              <td scope="row">Величина собственного капитала</td>
+              <td>Собственный капитал в балансе – это разность между активами и пассивами, то есть обязательствами
+                  компании. Он состоит из уставного, резервного и добавочного капитала. Требования к уставному
+                  капиталу коммерческой компании смотрите в Системе Главбух. Также в собственный капитал входит
+                  сумма нераспределенной прибыли.</td>
+              <td>{{ i.equity }}</td>
+            </tr>
+          <tr>
+              <td scope="row">Величина долгосрочных обязательств</td>
+              <td>Долгосрочные обязательства – это обязательства со сроком выполнения больше года. К долгосрочным
+                  обязательствам относят долговые обязательства,  налоговые отложенные обязательства, оценочные
+                  обязательства организации.</td>
+              <td>{{ i.long_liabilities }}</td>
+            </tr>
+          <tr>
+              <td scope="row">Величина краткосрочных обязательств</td>
+              <td>Краткосрочными считаются те обязательства организации, срок погашения которых не превышает 12 месяцев
+                  на отчетную дату. В бухгалтерском балансе такие обязательства показываются обособленно от
+                  долгосрочных обязательств (п. 19 ПБУ 4/99).</td>
+              <td>{{ i.current_liabilities }}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="col-1">
+
+    </div>
+  </div>
+</div>
+<div class="container text-left">
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col-10">
+      <br>
+        <p class="h5">Дополнительный комментарий от пользователя</p>
+        <div class="card mb-4">
+          <div class="card-body">
+            <p>{{ i.comment }}</p>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-row align-items-center">
+              </div>
+              <div class="d-flex flex-row align-items-center">
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+   <div class="container text-left">
+      <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col-10">
+            <p class="h5">Комментарии от экспертов</p>
+        <br>
+            {% for i in report %}
+            <div class="card mb-4">
+              <div class="card-body">
+                <p>{{ i.comment }}</p>
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-row align-items-center">
+                  </div>
+                  <div class="d-flex flex-row align-items-center">
+                  </div>
+
+                </div>
+              </div>
+            </div>
+                <p><i>{{ i.expert.surname }} {{ i.expert.name }} {{ i.expert.last_name }} ({{ i.date }})</i></p>
+            <br>
+                {% endfor %}
+        </div>
+        <div class="col">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-left">
+      <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col-10">
+           <p>
+      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Оставить комментарий
+      </a>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <form method="POST">
+                {% csrf_token %}
+                {% block head %}
+
+                {% endblock %}
+                {% for f in form %}
+                   <p> <div class="input-group mb-3">
+                      <span class="input-group-text" id="inputGroup-sizing-default">{{ f.label }}</span>
+                      {{ f }}
+                    </div> </p>
+                    <div class="form-error"> {{form.non_field_errors }}</div>
+                {% endfor %}
+                <p><button type="submit" class="btn btn-success">Добавить</button></p>
+            </form>
+          </div>
+        </div>
+        </div>
+        <div class="col">
+
+        </div>
+      </div>
+    </div>
+{% endblock %}
